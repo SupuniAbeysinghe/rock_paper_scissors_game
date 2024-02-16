@@ -6,22 +6,6 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 
 updateScoreElement();
 
-// document.querySelector('.js-result').innerHTML = (`${result}`);
-//document.querySelector('.js-moves').innerHTML = (`You ${playerMove} - ${computerMove} Computer`);
-
-
-
-// if (score === null) {
-//     score = {
-//         wins: 0,
-//         losses: 0,
-//         ties: 0
-
-//     }
-// }
-
-
-
 function playGame(playerMove) {
     const computerMove = pickingComputerMove();
     let result = '';
@@ -35,7 +19,6 @@ function playGame(playerMove) {
             result = 'Tie';
         }
 
-
     } else if (playerMove === 'paper') {
         if (computerMove === 'rock') {
             result = 'You win';
@@ -44,7 +27,6 @@ function playGame(playerMove) {
         } else if (computerMove === 'scissor') {
             result = 'You lose';
         }
-
 
     } else if (playerMove === 'rock') {
         if (computerMove === 'rock') {
@@ -65,15 +47,9 @@ function playGame(playerMove) {
         score.ties += 1;
     }
 
-
-
     localStorage.setItem('score', JSON.stringify(score));
 
-
     updateScoreElement();
-
-    //             alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
-    // wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
 
     document.querySelector('.js-result').innerHTML = result;
 
@@ -82,20 +58,11 @@ function playGame(playerMove) {
             <img src="images/${computerMove}-emoji.png" class = "move-icon"> 
             Computer`;
 
-
-
-
-
-
 }
-
-
-
 
 function updateScoreElement() {
     document.querySelector('.js-score').innerHTML = `wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
-
 
 function pickingComputerMove() {
     let computerMove = '';
@@ -112,8 +79,3 @@ function pickingComputerMove() {
     return computerMove;
 
 }
-
-
-// function calculateTax(cost, taxPercent = 0.1) {
-//     console.log(cost * taxPercent);
-//}
